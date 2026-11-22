@@ -61,22 +61,10 @@ function Diabetes() {
 
       setResult(predictionResponse.data);
 
-      // Then, get the SHAP explanation
-      try {
-        const explanationResponse = await api.post(
-          "/api/predict/diabetes/explain",
-          patientData
-        );
-
-        setExplanation(explanationResponse.data);
-      } catch (error) {
-        console.error("SHAP explanation error:", error);
-
-        setExplanationMessage(
-          error.response?.data?.detail ||
-            "Prediction succeeded, but the explanation could not be generated."
-        );
-      }
+      // SHAP is disabled on the low-memory deployment.
+      setExplanationMessage(
+        "Prediction completed. Detailed SHAP explanations are temporarily unavailable on this low-memory deployment."
+      );
     } catch (error) {
       console.error("Diabetes prediction error:", error);
 
