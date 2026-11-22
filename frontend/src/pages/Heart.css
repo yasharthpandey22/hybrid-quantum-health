@@ -1,119 +1,76 @@
-
-.heart-page {
-  min-height: 100vh;
-  background: #f1f5f9;
-  padding: 40px 24px;
-  font-family: Arial, sans-serif;
-  color: #0f172a;
-}
-
-.heart-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.heart-header {
-  margin-bottom: 30px;
-}
-
-.heart-header h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.heart-header p {
-  color: #64748b;
-  font-size: 16px;
-}
-
+.heart-page { min-height: 0; padding: 0; color: var(--ink); background: transparent; font-family: inherit; }
+.heart-container { max-width: 100%; margin: 0; }
+.heart-header { margin: 8px 0 24px; }
+.heart-header h1 { margin: 0 0 7px; color: #1d3b42; font-size: 28px; }
+.heart-header p { color: #829391; font-size: 12px; }
 .heart-form {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  max-width: 1000px;
+  padding: 24px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  gap: 17px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
 }
-
-.heart-form .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.heart-form label {
-  font-weight: 600;
-  color: #334155;
-  font-size: 14px;
-}
-
-.heart-form input {
-  padding: 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  font-size: 15px;
+.heart-form .form-group { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.heart-form label { color: #506a6c; font-size: 10px; font-weight: 800; }
+.heart-form input, .heart-form select {
   width: 100%;
-  box-sizing: border-box;
-}
-
-.heart-form input:focus {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #e0eae6;
+  border-radius: 9px;
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  color: #29464b;
+  background: #fbfdfc;
+  font-size: 12px;
+  transition: border .2s, box-shadow .2s;
 }
-
+.heart-form input:focus, .heart-form select:focus {
+  border-color: #65ad9f;
+  box-shadow: 0 0 0 3px rgba(8,127,115,.08);
+}
 .heart-form button {
   grid-column: 1 / -1;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+  min-height: 46px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--brand);
+  font-size: 11px;
+  font-weight: 800;
 }
-
-.heart-form button:hover {
-  background: #1d4ed8;
+.heart-form button:hover { background: var(--brand-dark); }
+.heart-form button:disabled { opacity: .65; cursor: wait; }
+.heart-page .prediction-result {
+  max-width: 1000px;
+  margin-top: 19px !important;
+  padding: 22px !important;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand) !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  box-shadow: var(--shadow-card) !important;
 }
-
-.heart-form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.heart-page .prediction-result h2 { margin: 0 0 12px; color: #315056; font-size: 18px; }
+.heart-page .prediction-result p { color: #748786; font-size: 11px; line-height: 1.7; }
+.heart-page .prediction-result > button {
+  min-height: 39px;
+  margin-top: 10px;
+  padding: 0 14px;
+  border: 1px solid #e0eae6;
+  border-radius: 9px;
+  color: #6d817e;
+  background: #f7faf8;
+  font-size: 10px;
+  font-weight: 700;
 }
-
-.prediction-result {
-  margin-top: 24px;
-  padding: 24px;
-  background: white;
-  border-radius: 16px;
-  border-left: 5px solid #2563eb;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-.prediction-result h2 {
-  margin-top: 0;
-}
-
-.prediction-result small {
-  color: #64748b;
-}
-
-.error-message {
-  margin-top: 20px;
-  color: #dc2626;
-  font-weight: 600;
-}
-
-@media (max-width: 650px) {
-  .heart-form {
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
-
-  .heart-header h1 {
-    font-size: 26px;
-  }
+.heart-page .prediction-result small { color: #879795; font-size: 10px; }
+.heart-page .error-message { margin-top: 15px; color: #a94d48; font-size: 11px; font-weight: 700; }
+@media (max-width: 760px) {
+  .heart-form { grid-template-columns: 1fr; padding: 18px; }
+  .heart-form button { grid-column: auto; }
 }
