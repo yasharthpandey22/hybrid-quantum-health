@@ -8,6 +8,8 @@ function Pneumonia() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  // This lightweight deployment temporarily keeps TensorFlow inference disabled.
+  const PNEUMONIA_ENABLED = false;
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -34,6 +36,11 @@ function Pneumonia() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!PNEUMONIA_ENABLED) {
+      setError("Pneumonia analysis is temporarily unavailable on this low-memory deployment. Diabetes and Heart Disease assessments remain available.");
+      return;
+    }
 
     if (!file) {
       setError("Please select a chest X-ray image first.");
@@ -115,6 +122,28 @@ function Pneumonia() {
           </p>
         </div>
 
+        {!PNEUMONIA_ENABLED && (
+          <div
+            role="status"
+            style={{
+              marginBottom: "20px",
+              padding: "18px",
+              borderRadius: "12px",
+              background: "#fff7ed",
+              border: "1px solid #fed7aa",
+              color: "#9a3412",
+              lineHeight: "1.6",
+            }}
+          >
+            <strong>Pneumonia analysis is temporarily unavailable.</strong>
+            <p style={{ margin: "6px 0 0" }}>
+              To keep the free backend within its memory limit, chest X-ray
+              inference is paused for this deployment. Diabetes and Heart
+              Disease assessments remain available.
+            </p>
+          </div>
+        )}
+
         {/* Upload Card */}
         <div
           style={{
@@ -142,6 +171,7 @@ function Pneumonia() {
               type="file"
               accept="image/png,image/jpeg"
               onChange={handleFileChange}
+              disabled={!PNEUMONIA_ENABLED}
               style={{
                 display: "block",
                 width: "100%",
@@ -187,21 +217,25 @@ function Pneumonia() {
             {/* Analyze Button */}
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || !PNEUMONIA_ENABLED}
               style={{
                 marginTop: "24px",
                 width: "100%",
                 padding: "14px",
-                background: loading ? "#94a3b8" : "#2563eb",
+                background: loading || !PNEUMONIA_ENABLED ? "#94a3b8" : "#2563eb",
                 color: "#ffffff",
                 border: "none",
                 borderRadius: "10px",
                 fontSize: "16px",
                 fontWeight: "600",
-                cursor: loading ? "not-allowed" : "pointer",
+                cursor: loading || !PNEUMONIA_ENABLED ? "not-allowed" : "pointer",
               }}
             >
-              {loading ? "Analyzing X-ray..." : "Analyze X-ray"}
+              {!PNEUMONIA_ENABLED
+                ? "Pneumonia analysis unavailable"
+                : loading
+                  ? "Analyzing X-ray..."
+                  : "Analyze X-ray"}
             </button>
           </form>
 
