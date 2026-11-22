@@ -23,7 +23,7 @@ const workspaceLinks = [
   { to: "/heart", label: "Heart health", icon: "♡" },
   { to: "/pneumonia", label: "Chest X-ray", icon: "▧" },
   { to: "/history", label: "Assessment history", icon: "↗" },
-  { to: "/performance", label: "Model performance", icon: "▥" },
+  { to: "/performance", label: "Model evaluation", icon: "▥" },
 ];
 
 function Brand({ compact = false }) {
@@ -74,11 +74,11 @@ function Home() {
       <main>
         <section className="landing-hero">
           <div className="landing-hero-copy">
-            <div className="eyebrow"><span className="eyebrow-dot" /> HYBRID QUANTUM + CLASSICAL AI</div>
-            <h1>Explore a smarter approach to <em>early health insights.</em></h1>
+            <div className="eyebrow"><span className="eyebrow-dot" /> B.TECH STUDENT RESEARCH PROJECT</div>
+            <h1>Hybrid Quantum-Classical Machine Learning for <em>Early Disease Detection</em></h1>
             <p className="landing-lead">
-              A research platform combining classical machine learning and quantum computing
-              concepts to explore data-driven disease risk assessment.
+              A student project that combines classical machine learning with quantum
+              computing concepts to study disease risk prediction and model performance.
             </p>
             <div className="landing-actions">
               <Link to="/register" className="button button-primary button-large">Create your account <span>↗</span></Link>
@@ -86,7 +86,7 @@ function Home() {
             </div>
             <div className="landing-proof">
               <span className="proof-icon">✦</span>
-              <span>Built for transparent experimentation and model comparison</span>
+              <span>Academic prototype for learning and experimentation</span>
             </div>
           </div>
 
@@ -127,31 +127,31 @@ function Home() {
           <div className="section-heading">
             <div>
               <div className="eyebrow">THE PLATFORM</div>
-              <h2>Research workflows, <em>made clearer.</em></h2>
+              <h2>Main project modules</h2>
             </div>
-            <p>Move from structured health inputs to model outputs and evaluation metrics in one workspace.</p>
+            <p>The current prototype includes assessment forms, a hybrid ML research module and model evaluation.</p>
           </div>
 
           <div className="feature-grid">
             <article className="feature-card feature-card-accent">
               <div className="feature-icon">⌘</div>
               <span className="feature-kicker">01 / ASSESS</span>
-              <h3>Health risk assessment</h3>
-              <p>Explore model-based predictions through structured diabetes and cardiovascular input forms.</p>
+              <h3>Disease prediction forms</h3>
+              <p>Enter sample health parameters and view predictions from the available machine learning models.</p>
               <Link to="/register">Explore assessments <span>↗</span></Link>
             </article>
             <article className="feature-card">
               <div className="feature-icon feature-icon-violet">⌁</div>
               <span className="feature-kicker">02 / EXPLORE</span>
-              <h3>Hybrid computing</h3>
-              <p>Bring classical machine learning and quantum machine learning research into a shared workflow.</p>
+              <h3>Hybrid ML research</h3>
+              <p>Explore the planned combination of classical machine learning and quantum computing methods.</p>
               <a href="#approach">Our approach <span>↗</span></a>
             </article>
             <article className="feature-card">
               <div className="feature-icon feature-icon-blue">▥</div>
               <span className="feature-kicker">03 / EVALUATE</span>
               <h3>Model performance</h3>
-              <p>Review evaluation metrics and compare how experimental models perform on their test datasets.</p>
+              <p>Review test metrics such as accuracy, precision, recall and confusion matrices.</p>
               <Link to="/login">View workspace <span>↗</span></Link>
             </article>
           </div>
@@ -160,11 +160,11 @@ function Home() {
         <section className="approach-section" id="approach">
           <div className="approach-copy">
             <div className="eyebrow">OUR APPROACH</div>
-            <h2>Classical foundations.<br /><em>Quantum exploration.</em></h2>
+            <h2>Project overview.<br /><em>Classical and quantum ML.</em></h2>
             <p>
-              QuantumHealth is a student research prototype exploring how classical data
-              processing and quantum-enhanced classification can be brought together.
-              It is designed for learning, experimentation and model evaluation.
+              QuantumHealth is an academic prototype for exploring disease prediction using classical
+              machine learning and quantum computing concepts. The current version focuses on
+              selected assessment forms, saved predictions and model evaluation.
             </p>
             <Link to="/register" className="text-link">Enter the research workspace <span>↗</span></Link>
           </div>
