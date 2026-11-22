@@ -1,27 +1,14 @@
-
 import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
 
 function Dashboard() {
   const navigate = useNavigate();
 
-  const cardStyle = {
-    background: "#ffffff",
-    borderRadius: "16px",
-    padding: "24px",
-    boxShadow: "0 6px 20px rgba(0,0,0,0.06)",
-  };
-
-  const buttonStyle = {
-    display: "inline-block",
-    marginTop: "16px",
-    padding: "12px 20px",
-    background: "#2563eb",
-    color: "white",
-    borderRadius: "8px",
-    textDecoration: "none",
-    fontWeight: "600",
-  };
+  const user = (() => {
+    try { return JSON.parse(localStorage.getItem("user") || "{}"); }
+    catch { return {}; }
+  })();
+  const firstName = (user.full_name || user.name || "there").split(" ")[0];
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -29,157 +16,110 @@ function Dashboard() {
     navigate("/login");
   };
 
+  const assessments = [
+    {
+      title: "Diabetes assessment",
+      description: "Explore a model-based estimate using glucose, BMI, age and other health parameters.",
+      to: "/diabetes",
+      icon: "◉",
+      status: "PREDICTION AVAILABLE",
+      action: "Start assessment",
+    },
+    {
+      title: "Heart health assessment",
+      description: "Review cardiovascular inputs and generate a model-based risk estimate.",
+      to: "/heart",
+      icon: "♡",
+      status: "PREDICTION AVAILABLE",
+      action: "Start assessment",
+    },
+    {
+      title: "Chest X-ray workspace",
+      description: "Open the image upload interface for the pneumonia research workflow.",
+      to: "/pneumonia",
+      icon: "▧",
+      status: "IMAGE WORKFLOW",
+      action: "Open workspace",
+    },
+  ];
+
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#f1f5f9",
-        padding: "40px",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
-      {/* Header */}
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: "16px",
-          marginBottom: "40px",
-        }}
-      >
+    <div className="dashboard-page">
+      <header className="page-header">
         <div>
-          <h1 style={{ color: "#0f172a", margin: 0 }}>
-            QuantumHealth
-          </h1>
-          <p style={{ color: "#64748b" }}>
-            Hybrid Quantum-Classical Health Assessment
-          </p>
+          <span className="page-eyebrow">YOUR WORKSPACE / OVERVIEW</span>
+          <h1>Good to see you, {firstName}.</h1>
+          <p>Your research workspace for exploring health assessment models and performance.</p>
         </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            flexWrap: "wrap",
-          }}
-        >
-          <Link
-            to="/history"
-            style={{
-              ...buttonStyle,
-              marginTop: 0,
-            }}
-          >
-            Prediction History
-          </Link>
-
-          <Link
-            to="/performance"
-            style={{
-              ...buttonStyle,
-              marginTop: 0,
-              background: "#0f766e",
-            }}
-          >
-            Model Performance
-          </Link>
-
-          <button
-            onClick={handleLogout}
-            style={{
-              ...buttonStyle,
-              marginTop: 0,
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Logout
-          </button>
-        </div>
+        <button className="page-action" onClick={handleLogout}>↪ Sign out</button>
       </header>
 
-      {/* Welcome */}
-      <section style={{ marginBottom: "32px" }}>
-        <h2 style={{ color: "#0f172a" }}>
-          Welcome to your Dashboard
-        </h2>
-
-        <p style={{ color: "#64748b" }}>
-          Select a health assessment to estimate your disease risk.
-        </p>
+      <section className="dashboard-welcome">
+        <div className="dashboard-welcome-copy">
+          <span className="welcome-kicker">QUANTUMHEALTH RESEARCH SPACE</span>
+          <h2>Turn health data into<br />clearer model insights.</h2>
+          <p>
+            Choose an assessment to explore model outputs, or review your saved
+            results and experimental performance.
+          </p>
+          <Link to="/history" className="button button-primary button-small" style={{ marginTop: 17 }}>
+            View assessment history <span>↗</span>
+          </Link>
+        </div>
+        <div className="dashboard-welcome-art" aria-hidden="true">Q<span style={{ color: "#8b83bd" }}>+</span></div>
       </section>
 
-      {/* Disease Cards */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gap: "24px",
-        }}
-      >
-        {/* Diabetes */}
-        <div style={cardStyle}>
-          <h2 style={{ color: "#1e293b" }}>
-            Diabetes
-          </h2>
+      <section className="dashboard-summary" aria-label="Workspace summary">
+        <div className="summary-tile">
+          <span className="summary-icon">⌘</span>
+          <div><strong>02</strong><span>Structured prediction workflows</span></div>
+        </div>
+        <div className="summary-tile">
+          <span className="summary-icon">▧</span>
+          <div><strong>01</strong><span>Image assessment interface</span></div>
+        </div>
+        <div className="summary-tile">
+          <span className="summary-icon">▥</span>
+          <div><strong>Metrics</strong><span>Model evaluation workspace</span></div>
+        </div>
+      </section>
 
-          <p style={{ color: "#64748b" }}>
-            Estimate diabetes risk using health measurements such as glucose,
-            BMI, age and blood pressure.
-          </p>
-
-          <Link to="/diabetes" style={buttonStyle}>
-            Start Assessment
-          </Link>
+      <section className="dashboard-section">
+        <div className="dashboard-section-header">
+          <div>
+            <span className="page-eyebrow">ASSESSMENT CENTRE</span>
+            <h2>Choose a research workflow</h2>
+            <p>Start an assessment or open the image workspace.</p>
+          </div>
         </div>
 
-        {/* Heart Disease */}
-        <div style={cardStyle}>
-          <h2 style={{ color: "#1e293b" }}>
-            Heart Disease
-          </h2>
-
-          <p style={{ color: "#64748b" }}>
-            Assess heart disease risk using relevant cardiovascular health
-            information.
-          </p>
-
-          <Link to="/heart" style={buttonStyle}>
-            Start Assessment
-          </Link>
+        <div className="disease-grid">
+          {assessments.map((item) => (
+            <article className="disease-card" key={item.title}>
+              <div className="disease-card-top">
+                <span className="disease-icon">{item.icon}</span>
+                <span className={item.title.includes("Chest") ? "status coming-soon" : "status available"}>
+                  <span className="status-dot" style={{ width: 5, height: 5, boxShadow: "none" }} />
+                  {item.status}
+                </span>
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <Link className="disease-btn" to={item.to}>{item.action} <span style={{ marginLeft: 8 }}>↗</span></Link>
+            </article>
+          ))}
         </div>
 
-        {/* Pneumonia */}
-        <div style={cardStyle}>
-          <h2 style={{ color: "#1e293b" }}>
-            Pneumonia
-          </h2>
-
-          <p style={{ color: "#64748b" }}>
-            Upload a chest X-ray image to estimate pneumonia risk.
-          </p>
-
-          <Link to="/pneumonia" style={buttonStyle}>
-            Start Assessment
-          </Link>
+        <div className="dashboard-bottom-links">
+          <Link to="/history">↗ View prediction history</Link>
+          <Link to="/performance">▥ Explore model performance</Link>
         </div>
-      </div>
+      </section>
 
-      {/* Information */}
-      <div
-        style={{
-          marginTop: "40px",
-          padding: "20px",
-          background: "#e0f2fe",
-          borderRadius: "12px",
-          color: "#075985",
-        }}
-      >
-        <strong>Note:</strong> This platform is a student research prototype
-        for educational purposes. It does not provide a medical diagnosis.
+      <div className="dashboard-note">
+        <strong>Research-use notice:</strong> QuantumHealth is a student research prototype.
+        Model outputs are experimental, are not clinically validated, and must not be used
+        as a diagnosis or substitute for professional medical care.
       </div>
     </div>
   );
