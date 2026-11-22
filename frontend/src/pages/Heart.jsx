@@ -225,13 +225,19 @@ function Heart() {
   return (
     <div className="heart-page">
       <div className="heart-container">
-        <header className="heart-header">
-          <h1>Heart Disease Risk Prediction</h1>
-          <p>
-            Enter the required health parameters to get a
-            model-based prediction.
-          </p>
+        <header className="page-header heart-page-header">
+          <div>
+            <span className="page-eyebrow">ASSESSMENT CENTRE / CARDIOVASCULAR HEALTH</span>
+            <h1>Heart health assessment</h1>
+            <p>Complete the cardiovascular parameters to explore a model-based estimate.</p>
+          </div>
+          <span className="page-action">♡ Classical ML model</span>
         </header>
+
+        <section className="assessment-intro">
+          <span className="assessment-intro-icon heart-intro-icon">♡</span>
+          <div><strong>Cardiovascular inputs</strong><p>Use the values and dataset codes associated with your research assessment.</p></div>
+        </section>
 
         <form onSubmit={handleSubmit} className="heart-form">
           {fields.map((field) => (
@@ -274,9 +280,7 @@ function Heart() {
           ))}
 
           <button type="submit" disabled={loading}>
-            {loading
-              ? "Predicting..."
-              : "Predict Heart Disease"}
+            {loading ? "Generating assessment..." : "Generate assessment"} <span>↗</span>
           </button>
         </form>
 
