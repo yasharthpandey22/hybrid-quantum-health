@@ -365,3 +365,78 @@ button { font-family: inherit; }
   .landing-stats span { font-size: 9px; }
   .dashboard-welcome-art { display: none; }
 }
+
+
+/* Shared assessment, upload and history components */
+.assessment-intro {
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  border: 1px solid #e0ece7;
+  border-radius: 12px;
+  background: #f7fbf9;
+}
+.assessment-intro-icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: #087f73;
+  background: #e2f2eb;
+  font-size: 18px;
+}
+.heart-intro-icon { color: #a46d77; background: #faeef0; }
+.assessment-intro strong { display: block; color: #496664; font-size: 10px; }
+.assessment-intro p { margin: 4px 0 0; color: #8a9b99; font-size: 9px; line-height: 1.6; }
+.diabetes-page .assessment-form { max-width: 1000px; }
+.diabetes-page .assessment-form button span, .heart-form button span, .pneumonia-submit span { margin-left: 8px; }
+.heart-page-header { margin-bottom: 22px; }
+.upload-heading { display: flex; align-items: center; gap: 13px; margin-bottom: 24px; }
+.upload-heading-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; color: #5e82a7; background: #edf3fa; font-size: 20px; }
+.upload-heading h2 { margin: 0 0 5px; color: #345257; font-family: "Manrope", sans-serif; font-size: 15px; }
+.upload-heading p { margin: 0; color: #8b9b99; font-size: 10px; }
+.preview-label { margin-bottom: 9px; color: #9aaba7; font-size: 8px; font-weight: 800; letter-spacing: .14em; }
+.pneumonia-preview > p { margin: 8px 0 0; color: #879895; font-size: 9px; }
+.pneumonia-result h2 { margin: 8px 0 9px; color: #315056; font-family: "Manrope", sans-serif; font-size: 18px; }
+.pneumonia-result p { color: #6f8581; font-size: 11px; line-height: 1.7; }
+.pneumonia-result small { color: #8a9b98; font-size: 9px; }
+.history-item-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin-top: 13px; padding-top: 12px; border-top: 1px solid #edf2ef; }
+.history-item-meta p { margin: 0; color: #879895; font-size: 9px; }
+.history-item-meta strong { color: #3c6962; font-size: 10px; }
+.history-disclaimer { margin: 22px 0 0; color: #99a7a4; font-size: 9px; line-height: 1.7; }
+
+/* Auth split-panel */
+.auth-page { display: grid; place-items: center; padding: 35px; }
+.auth-layout { width: 100%; max-width: 1030px; min-height: 620px; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; overflow: hidden; border: 1px solid #e3eeea; border-radius: 24px; background: #fff; box-shadow: 0 25px 80px rgba(31,80,70,.1); }
+.auth-aside { position: relative; overflow: hidden; display: flex; flex-direction: column; padding: 35px; color: #fff; background: linear-gradient(145deg, #0d8276 0%, #075f59 75%, #114f53 100%); }
+.auth-aside .brand-name, .auth-aside .brand-name span { color: #fff; }
+.auth-aside .brand-mark { background: rgba(255,255,255,.18); box-shadow: none; border: 1px solid rgba(255,255,255,.18); }
+.auth-aside-copy { position: relative; z-index: 2; max-width: 390px; margin: auto 0; padding: 45px 0; }
+.auth-aside-copy .eyebrow { color: #a6e0d1; }
+.auth-aside-copy .eyebrow-dot { background: #b8e9d8; box-shadow: 0 0 0 4px rgba(184,233,216,.12); }
+.auth-aside-copy h2 { margin: 18px 0 15px; color: #fff; font-family: "Manrope", sans-serif; font-size: clamp(28px, 3vw, 39px); line-height: 1.2; letter-spacing: -.05em; }
+.auth-aside-copy h2 em { color: #b8ead9; font-style: normal; }
+.auth-aside-copy p { color: rgba(238,250,245,.72); font-size: 12px; line-height: 1.9; }
+.auth-aside-footer { position: relative; z-index: 2; display: flex; align-items: center; gap: 12px; color: rgba(230,249,241,.75); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+.auth-aside-footer i { color: #b5e5d6; font-style: normal; }
+.auth-aside-orb { position: absolute; right: -80px; bottom: 60px; width: 280px; height: 280px; display: grid; place-items: center; border: 1px solid rgba(224,255,244,.17); border-radius: 50%; color: rgba(222,255,243,.12); font-family: "Manrope", sans-serif; font-size: 160px; font-weight: 800; box-shadow: 0 0 0 28px rgba(224,255,244,.035), 0 0 0 62px rgba(224,255,244,.025); transform: rotate(-12deg); }
+.auth-card { align-self: center; width: 100%; max-width: none; padding: 46px clamp(28px, 5vw, 58px); border: 0; border-radius: 0; background: #fff; box-shadow: none; }
+.auth-back { margin-bottom: 35px; }
+.auth-card-heading { margin-bottom: 27px; }
+.auth-card-kicker { color: var(--brand); font-size: 9px; font-weight: 800; letter-spacing: .15em; }
+.auth-card-heading h1 { margin: 9px 0 7px; font-size: 27px; }
+.auth-card-heading p { margin: 0; color: #849492; font-size: 11px; line-height: 1.7; }
+.auth-card form > p.auth-feedback { padding: 10px 12px; border: 1px solid #f0d9d5; border-radius: 9px; color: #a6534c; background: #fff8f6; font-size: 10px; }
+.auth-legal { margin: 18px 0 0; color: #a1aeaa; text-align: center; font-size: 8px; line-height: 1.6; }
+@media (max-width: 760px) {
+  .auth-page { padding: 14px; }
+  .auth-layout { max-width: 500px; min-height: auto; grid-template-columns: 1fr; border-radius: 19px; }
+  .auth-aside { display: none; }
+  .auth-card { padding: 30px 23px; }
+  .auth-back { margin-bottom: 27px; }
+}
