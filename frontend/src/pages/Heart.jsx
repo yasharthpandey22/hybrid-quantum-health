@@ -303,13 +303,15 @@ function Heart() {
 
             <button
               type="button"
-              onClick={handleExplain}
-              disabled={explaining}
+              disabled
+              title="SHAP explanations are paused on the low-memory deployment"
             >
-              {explaining
-                ? "Generating Explanation..."
-                : "Explain Prediction"}
+              Explanations temporarily unavailable
             </button>
+            <p style={{ color: "#b45309", fontSize: "13px", marginTop: "8px" }}>
+              The prediction is available, but detailed SHAP explanations are
+              paused to keep the free backend within its memory limit.
+            </p>
 
             {explanationError && (
               <p className="error-message">
