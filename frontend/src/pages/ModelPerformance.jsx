@@ -172,11 +172,11 @@ function ModelPerformance() {
   return (
     <div className="performance-page">
       <header className="performance-header">
-        <h1>Model Performance Dashboard</h1>
-        <p>
-          Evaluation metrics calculated using the
-          held-out test datasets.
-        </p>
+        <div>
+          <span className="page-eyebrow">YOUR WORKSPACE / MODEL EVALUATION</span>
+          <h1>Model performance</h1>
+          <p>Review evaluation metrics from the selected held-out test datasets.</p>
+        </div>
       </header>
 
       {diabetesMetrics && (
