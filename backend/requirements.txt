@@ -16,5 +16,6 @@ scipy
 joblib
 Pillow
 
-shap
-tensorflow==2.16.2
+# TensorFlow and SHAP are intentionally excluded from this low-memory
+# deployment. Pneumonia inference and SHAP explanations return a clear
+# unavailable response until moved to a separate service with more RAM.
