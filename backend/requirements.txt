@@ -13,3 +13,4 @@ joblib
 email-validator
 PyJWT
 pwdlib[argon2]
+shap
