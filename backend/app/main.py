@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -19,12 +21,21 @@ app.include_router(prediction_router)
 # Create tables without loading any heavyweight ML framework.
 Base.metadata.create_all(bind=engine)
 
+# Add the deployed Vercel URL in Render as FRONTEND_URL.
+# Multiple comma-separated origins are supported.
+configured_frontend_urls = [
+    origin.strip()
+    for origin in os.getenv("FRONTEND_URL", "").split(",")
+    if origin.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:5174",
         "http://localhost:5175",
+        *configured_frontend_urls,
     ],
     allow_credentials=True,
     allow_methods=["*"],
