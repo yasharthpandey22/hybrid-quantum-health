@@ -4,7 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import "./App.css";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard.jsx";
 import Diabetes from "./pages/Diabetes";
 import Heart from "./pages/Heart";
 import Pneumonia from "./pages/Pneumonia";
